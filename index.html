@@ -149,7 +149,7 @@
       padding: 18px 24px;
       border-radius: 18px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      max-width: 500px;
+      max-width: 520px;
     }
     .brand-row {
       display: flex;
@@ -215,7 +215,7 @@
       height: 100%;
       background: linear-gradient(90deg, #38bdf8, #22c55e);
       border-radius: 999px;
-      width: 11%;
+      width: 9%;
       transition: width 0.4s ease;
     }
 
@@ -332,10 +332,10 @@
     <div class="progress-box">
       <div class="progress-header">
         <span>Общий прогресс портфеля</span>
-        <span id="progress-percent">2 / 18 задач выполнено (11%)</span>
+        <span id="progress-percent">2 / 23 задач выполнено (9%)</span>
       </div>
       <div class="progress-bar-bg">
-        <div class="progress-bar-fill" id="progress-fill" style="width: 11%;"></div>
+        <div class="progress-bar-fill" id="progress-fill" style="width: 9%;"></div>
       </div>
     </div>
   </div>
@@ -393,68 +393,72 @@
     const treeData = {
       id: "root",
       title: "🎯 P&B Advisory Partners: Портфель 2026",
-      subtitle: "Парвиз & Ботур (Таджикистан: САФИ / RCVC / Рушди Диёр)",
+      subtitle: "Парвиз & Ботур (RCVC / САФИ / Рушди Диёр)",
       color: "#0284c7",
       expanded: true,
       children: [
         {
+          id: "sprint_training",
+          title: "🎓 Спринт 1: Тренинг Capacity Building (ОО «RCVC»)",
+          subtitle: "Срок: после 6 нояб | 1.5 дня, ~16 чел., за городом",
+          status: "urgent",
+          statusText: "ПОДГОТОВКА",
+          color: "#f43f5e",
+          expanded: true,
+          children: [
+            { id: "tr_1", title: "Шаг 1.1: Фиксация ТЗ и профиля участников", subtitle: "Получить точную тему и список 16 чел. от RCVC", done: false },
+            { id: "tr_2", title: "Шаг 1.2: Поминутная программа на 1.5 дня", subtitle: "День 1: теория + 2 практики; День 2: защита планов", done: false },
+            { id: "tr_3", title: "Шаг 1.3: Презентация P&B и 3 рабочих кейса", subtitle: "Интерактивная групповая работа", done: false },
+            { id: "tr_4", title: "Шаг 1.4: Pre-test и Post-test + Handouts", subtitle: "Входной и выходной срез знаний для донора", done: false },
+            { id: "tr_5", title: "Шаг 1.5: Логистика загородного зала", subtitle: "Проектор, 2 флипчарта, маркеры, кофе-брейки", done: false },
+            { id: "tr_6", title: "Шаг 1.6: Генеральный прогон Парвиз & Ботур", subtitle: "Разделение ролей и тайминг перед выездом", done: false },
+            { id: "tr_7", title: "Шаг 1.7: Проведение + Training Report", subtitle: "Итоговый отчет для руководства RCVC и донора", done: false }
+          ]
+        },
+        {
           id: "sprint1",
-          title: "🏛️ Спринт 1: Посольство Японии (GGP / Kusanone)",
+          title: "🏛️ Спринт 2: Посольство Японии (GGP / Kusanone)",
           subtitle: "Срок: 7-10 дн | Бюджет: $70,000 - $90,000 | Швейный хаб",
           status: "in-progress",
           statusText: "В РАБОТЕ",
           color: "#eab308",
           expanded: true,
           children: [
-            { id: "s1_1", title: "Шаг 1.1: Концепт Women's Hub САФИ", subtitle: "Декомпозиция под капитальное оборудование", done: true },
-            { id: "s1_2", title: "Шаг 1.2: Верификация помещения хаба", subtitle: "г. Худжанд, договор аренды/пользования", done: false },
-            { id: "s1_3", title: "Шаг 1.3: Сбор 3 коммерческих предложений (КП)", subtitle: "Швейные, раскройные, IT-класс для продаж", done: false },
-            { id: "s1_4", title: "Шаг 1.4: Официальная заявка GGP", subtitle: "ТЭО + план самоокупаемости SafiDecor", done: false },
-            { id: "s1_5", title: "Шаг 1.5: Печать, подпись и визирование", subtitle: "Формирование официального бумажного досье", done: false },
-            { id: "s1_6", title: "Шаг 1.6: Подача в Посольство Японии", subtitle: "г. Душанбе, ул. Хабибулло Назарова 65/1", done: false }
+            { id: "s1_1", title: "Шаг 2.1: Концепт Women's Hub САФИ", subtitle: "Декомпозиция под капитальное оборудование", done: true },
+            { id: "s1_2", title: "Шаг 2.2: Верификация помещения хаба", subtitle: "г. Худжанд, договор аренды/пользования", done: false },
+            { id: "s1_3", title: "Шаг 2.3: Сбор 3 коммерческих предложений (КП)", subtitle: "Швейные, раскройные, IT-класс для продаж", done: false },
+            { id: "s1_4", title: "Шаг 2.4: Официальная заявка GGP", subtitle: "ТЭО + план самоокупаемости SafiDecor", done: false },
+            { id: "s1_5", title: "Шаг 2.5: Печать, подпись и визирование", subtitle: "Формирование официального бумажного досье", done: false },
+            { id: "s1_6", title: "Шаг 2.6: Подача в Посольство Японии", subtitle: "г. Душанбе, ул. Хабибулло Назарова 65/1", done: false }
           ]
         },
         {
           id: "sprint2",
-          title: "🍁 Спринт 2: Канадский фонд местных инициатив (CFLI)",
+          title: "🍁 Спринт 3: Канадский фонд местных инициатив (CFLI)",
           subtitle: "Срок: 2-3 нед | Бюджет: CAD 30,000 - 60,000",
           status: "prep",
           statusText: "КОНЦЕПТ",
           color: "#06b6d4",
-          expanded: true,
+          expanded: false,
           children: [
-            { id: "s2_1", title: "Шаг 2.1: Аналитический отчет по политике Канады FIAP", subtitle: "Завершен и сохранен в папке Канады", done: true },
-            { id: "s2_2", title: "Шаг 2.2: Адаптация концепта хаба под FIAP", subtitle: "Action Area 1 & 3: расширение прав женщин + GBV", done: false },
-            { id: "s2_3", title: "Шаг 2.3: Контакт с координатором CFLI в Астане", subtitle: "Предварительный питчинг проекта", done: false },
-            { id: "s2_4", title: "Шаг 2.4: Полный пакет к открытию окна", subtitle: "Готовность к старту приема заявок в январе", done: false }
+            { id: "s2_1", title: "Шаг 3.1: Аналитический отчет по политике Канады FIAP", subtitle: "Завершен и сохранен в папке Канады", done: true },
+            { id: "s2_2", title: "Шаг 3.2: Адаптация концепта хаба под FIAP", subtitle: "Action Area 1 & 3: расширение прав женщин + GBV", done: false },
+            { id: "s2_3", title: "Шаг 3.3: Контакт с координатором CFLI в Астане", subtitle: "Предварительный питчинг проекта", done: false },
+            { id: "s2_4", title: "Шаг 3.4: Полный пакет к открытию окна", subtitle: "Готовность к старту приема заявок в январе", done: false }
           ]
         },
         {
           id: "sprint3",
-          title: "🇪🇺 Спринт 3: European Endowment for Democracy (EED)",
+          title: "🇪🇺 Спринт 4: European Endowment for Democracy (EED)",
           subtitle: "Срок: 3-4 нед | Бюджет: €30,000 - €50,000",
           status: "waiting",
           statusText: "ОЖИДАНИЕ",
           color: "#3b82f6",
           expanded: false,
           children: [
-            { id: "s3_1", title: "Шаг 3.1: Logframe & Theory of Change", subtitle: "Устойчивость женского ресурсного центра", done: false },
-            { id: "s3_2", title: "Шаг 3.2: Операционный бюджет", subtitle: "Зарплаты психологов, юристов, тренеров", done: false },
-            { id: "s3_3", title: "Шаг 3.3: Подача через apply.democracyendowment.eu", subtitle: "Круглогодичный прием заявок", done: false }
-          ]
-        },
-        {
-          id: "sprint4",
-          title: "🇺🇸 Спринт 4: Посольство США (PDS Grants)",
-          subtitle: "Срок: Мониторинг NOFO | Бюджет: $25,000 - $50,000",
-          status: "waiting",
-          statusText: "ОЖИДАНИЕ",
-          color: "#8b5cf6",
-          expanded: false,
-          children: [
-            { id: "s4_1", title: "Шаг 4.1: Верификация SAM.gov и код UEI", subtitle: "Проверка активного статуса регистрации", done: false },
-            { id: "s4_2", title: "Шаг 4.2: Концепт женского предпринимательства", subtitle: "Синергия с Academy for Women Entrepreneurs", done: false },
-            { id: "s4_3", title: "Шаг 4.3: Подача на GrantProposalsDushanbe@state.gov", subtitle: "В рамках Annual Program Statement", done: false }
+            { id: "s3_1", title: "Шаг 4.1: Logframe & Theory of Change", subtitle: "Устойчивость женского ресурсного центра", done: false },
+            { id: "s3_2", title: "Шаг 4.2: Операционный бюджет", subtitle: "Зарплаты психологов, юристов, тренеров", done: false },
+            { id: "s3_3", title: "Шаг 4.3: Подача через apply.democracyendowment.eu", subtitle: "Круглогодичный прием заявок", done: false }
           ]
         },
         {
