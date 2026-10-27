@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Грантовый конвейер 2026: Дорожная карта</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+    #canvas-container {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: grab;
+      overflow: hidden;
+    }
+    #canvas-container:active {
+      cursor: grabbing;
+    }
+    svg#mindmap-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Controls Header */
+    .header-bar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(30, 41, 59, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 22px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      max-width: 480px;
+    }
+    .header-bar h1 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .header-bar p {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .progress-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 5px;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: #334155;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #22c55e);
+      border-radius: 999px;
+      width: 11%;
+      transition: width 0.4s ease;
+    }
+
+    /* Floating Navigation Controls */
+    .floating-controls {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30, 41, 59, 0.9);
+      backdrop-filter: blur(16px);
+      padding: 8px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    .nav-btn {
+      background: #334155;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: #475569;
+      transform: translateY(-2px);
+    }
+    .nav-btn:active {
+      transform: translateY(0);
+    }
+    .zoom-text {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 600;
+      min-width: 45px;
+      text-align: center;
+    }
+
+    /* SVG Node Styles */
+    .link-path {
+      fill: none;
+      stroke: #334155;
+      stroke-width: 2px;
+      transition: stroke 0.3s;
+    }
+    .link-path.active {
+      stroke: #22c55e;
+      stroke-width: 2.5px;
+    }
+    .node-group {
+      cursor: pointer;
+    }
+    .node-bg {
+      rx: 10px;
+      ry: 10px;
+      transition: all 0.2s ease;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    }
+    .node-group:hover .node-bg {
+      filter: drop-shadow(0 8px 20px rgba(56, 189, 248, 0.35));
+    }
+    .node-title {
+      font-size: 13px;
+      font-weight: 600;
+      fill: #ffffff;
+      pointer-events: none;
+    }
+    .node-subtitle {
+      font-size: 11px;
+      fill: #94a3b8;
+      pointer-events: none;
+    }
+    .node-checkbox {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header HUD -->
+  <div class="header-bar">
+    <h1>🎯 Грантовый конвейер 2026</h1>
+    <p>⚡ <b>Тачпад Mac:</b> 2 пальца в любую сторону — перемещение карты. Сдвигание/раздвигание 2 пальцев (pinch) — плавный зум. Клик по узлу — скрыть/раскрыть. Клик по <b>[ ]</b> — отметить задачу.</p>
+    <div class="progress-box">
+      <div class="progress-header">
+        <span>Общий прогресс портфеля</span>
+        <span id="progress-percent">2 / 18 задач выполнено (11%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill" style="width: 11%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Floating Navigation -->
+  <div class="floating-controls">
+    <button class="nav-btn" onclick="zoomIn()" title="Приблизить">+</button>
+    <span class="zoom-text" id="zoom-label">100%</span>
+    <button class="nav-btn" onclick="zoomOut()" title="Отдалить">−</button>
+    <button class="nav-btn" onclick="resetZoom()" title="Сброс масштаба">🎯</button>
+    <button class="nav-btn" onclick="expandAll()" title="Развернуть всё">📂</button>
+  </div>
+
+  <!-- Main Canvas Container -->
+  <div id="canvas-container">
+    <svg id="mindmap-svg">
+      <g id="viewport-group">
+        <g id="links-layer"></g>
+        <g id="nodes-layer"></g>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    // Validated realistic portfolio aligned with PO SAFI & PO RCVC
+    const treeData = {
+      id: "root",
+      title: "🎯 Грантовый конвейер 2026",
+      subtitle: "Таджикистан: САФИ / RCVC / Рушди Диёр",
+      color: "#0284c7",
+      expanded: true,
+      children: [
+        {
+          id: "sprint1",
+          title: "🏛️ Спринт 1: Посольство Японии (GGP / Kusanone)",
+          subtitle: "Срок: 7-10 дн | Бюджет: $70,000 - $90,000 | Швейный хаб",
+          status: "in-progress",
+          statusText: "В РАБОТЕ",
+          color: "#eab308",
+          expanded: true,
+          children: [
+            { id: "s1_1", title: "Шаг 1.1: Концепт Women's Hub САФИ", subtitle: "Декомпозиция под капитальное оборудование", done: true },
+            { id: "s1_2", title: "Шаг 1.2: Верификация помещения хаба", subtitle: "г. Худжанд, договор аренды/пользования", done: false },
+            { id: "s1_3", title: "Шаг 1.3: Сбор 3 коммерческих предложений (КП)", subtitle: "Швейные, раскройные, IT-класс для продаж", done: false },
+            { id: "s1_4", title: "Шаг 1.4: Официальная заявка GGP", subtitle: "ТЭО + план самоокупаемости SafiDecor", done: false },
+            { id: "s1_5", title: "Шаг 1.5: Печать, подпись и визирование", subtitle: "Формирование официального бумажного досье", done: false },
+            { id: "s1_6", title: "Шаг 1.6: Подача в Посольство Японии", subtitle: "г. Душанбе, ул. Хабибулло Назарова 65/1", done: false }
+          ]
+        },
+        {
+          id: "sprint2",
+          title: "🍁 Спринт 2: Канадский фонд местных инициатив (CFLI)",
+          subtitle: "Срок: 2-3 нед | Бюджет: CAD 30,000 - 60,000",
+          status: "prep",
+          statusText: "КОНЦЕПТ",
+          color: "#06b6d4",
+          expanded: true,
+          children: [
+            { id: "s2_1", title: "Шаг 2.1: Аналитический отчет по политике Канады FIAP", subtitle: "Завершен и сохранен в папке Канады", done: true },
+            { id: "s2_2", title: "Шаг 2.2: Адаптация концепта хаба под FIAP", subtitle: "Action Area 1 & 3: расширение прав женщин + GBV", done: false },
+            { id: "s2_3", title: "Шаг 2.3: Контакт с координатором CFLI в Астане", subtitle: "Предварительный питчинг проекта", done: false },
+            { id: "s2_4", title: "Шаг 2.4: Полный пакет к открытию окна", subtitle: "Готовность к старту приема заявок в январе", done: false }
+          ]
+        },
+        {
+          id: "sprint3",
+          title: "🇪🇺 Спринт 3: European Endowment for Democracy (EED)",
+          subtitle: "Срок: 3-4 нед | Бюджет: €30,000 - €50,000",
+          status: "waiting",
+          statusText: "ОЖИДАНИЕ",
+          color: "#3b82f6",
+          expanded: false,
+          children: [
+            { id: "s3_1", title: "Шаг 3.1: Logframe & Theory of Change", subtitle: "Устойчивость женского ресурсного центра", done: false },
+            { id: "s3_2", title: "Шаг 3.2: Операционный бюджет", subtitle: "Зарплаты психологов, юристов, тренеров", done: false },
+            { id: "s3_3", title: "Шаг 3.3: Подача через apply.democracyendowment.eu", subtitle: "Круглогодичный прием заявок", done: false }
+          ]
+        },
+        {
+          id: "sprint4",
+          title: "🇺🇸 Спринт 4: Посольство США (PDS Grants)",
+          subtitle: "Срок: Мониторинг NOFO | Бюджет: $25,000 - $50,000",
+          status: "waiting",
+          statusText: "ОЖИДАНИЕ",
+          color: "#8b5cf6",
+          expanded: false,
+          children: [
+            { id: "s4_1", title: "Шаг 4.1: Верификация SAM.gov и код UEI", subtitle: "Проверка активного статуса регистрации", done: false },
+            { id: "s4_2", title: "Шаг 4.2: Концепт женского предпринимательства", subtitle: "Синергия с Academy for Women Entrepreneurs", done: false },
+            { id: "s4_3", title: "Шаг 4.3: Подача на GrantProposalsDushanbe@state.gov", subtitle: "В рамках Annual Program Statement", done: false }
+          ]
+        },
+        {
+          id: "institutional",
+          title: "🏛️ Институциональный трек и Консорциумы",
+          subtitle: "Партнерства и долгосрочная устойчивость",
+          status: "active",
+          statusText: "АКТИВНО",
+          color: "#10b981",
+          expanded: false,
+          children: [
+            { id: "inst_1", title: "UN Partner Portal (UNPP)", subtitle: "Верификация профилей САФИ и RCVC", done: false },
+            { id: "inst_2", title: "Консорциум САФИ + RCVC", subtitle: "Совместная программа: женщины + беженцы", done: false },
+            { id: "inst_3", title: "Комплаенс-пакет", subtitle: "Политики PSEA, защиты детей, финконтроль", done: false }
+          ]
+        }
+      ]
+    };
+
+    const NODE_WIDTH = 340;
+    const NODE_HEIGHT = 68;
+    const LEVEL_GAP = 90;
+    const NODE_GAP_Y = 18;
+
+    let scale = 0.95;
+    let translateX = 70;
+    let translateY = window.innerHeight / 2 - 120;
+    let isDragging = false;
+    let startX, startY;
+
+    const svg = document.getElementById("mindmap-svg");
+    const viewport = document.getElementById("viewport-group");
+    const linksLayer = document.getElementById("links-layer");
+    const nodesLayer = document.getElementById("nodes-layer");
+
+    function updateTransform() {
+      viewport.setAttribute("transform", `translate(${translateX}, ${translateY}) scale(${scale})`);
+      document.getElementById("zoom-label").innerText = Math.round(scale * 100) + "%";
+    }
+
+    function calculateLayout(node, x = 0, yOffset = { currentY: 0 }, depth = 0) {
+      node.x = x;
+      node.depth = depth;
+
+      if (!node.children || node.children.length === 0 || !node.expanded) {
+        node.y = yOffset.currentY;
+        yOffset.currentY += NODE_HEIGHT + NODE_GAP_Y;
+        return;
+      }
+
+      node.children.forEach(child => {
+        calculateLayout(child, x + NODE_WIDTH + LEVEL_GAP, yOffset, depth + 1);
+      });
+
+      const firstChildY = node.children[0].y;
+      const lastChildY = node.children[node.children.length - 1].y;
+      node.y = (firstChildY + lastChildY) / 2;
+    }
+
+    function render() {
+      linksLayer.innerHTML = "";
+      nodesLayer.innerHTML = "";
+
+      const yOffset = { currentY: 40 };
+      calculateLayout(treeData, 40, yOffset, 0);
+
+      renderNodeAndLinks(treeData);
+      updateTransform();
+      updateStats();
+    }
+
+    function renderNodeAndLinks(node) {
+      if (node.expanded && node.children && node.children.length > 0) {
+        node.children.forEach(child => {
+          const x1 = node.x + NODE_WIDTH;
+          const y1 = node.y + NODE_HEIGHT / 2;
+          const x2 = child.x;
+          const y2 = child.y + NODE_HEIGHT / 2;
+          const cx = (x1 + x2) / 2;
+
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("d", `M ${x1} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x2} ${y2}`);
+          path.setAttribute("class", `link-path ${child.done ? 'active' : ''}`);
+          if (child.done) {
+            path.style.stroke = "#22c55e";
+          }
+          linksLayer.appendChild(path);
+
+          renderNodeAndLinks(child);
+        });
+      }
+
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      g.setAttribute("class", "node-group");
+      g.setAttribute("transform", `translate(${node.x}, ${node.y})`);
+
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("width", NODE_WIDTH);
+      rect.setAttribute("height", NODE_HEIGHT);
+      rect.setAttribute("class", "node-bg");
+      rect.setAttribute("fill", "#1e293b");
+      rect.setAttribute("stroke", node.done ? "#22c55e" : (node.color || "#475569"));
+      rect.setAttribute("stroke-width", node.depth === 0 ? "2.5" : "1.8");
+      g.appendChild(rect);
+
+      const accent = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      accent.setAttribute("x", "0");
+      accent.setAttribute("y", "0");
+      accent.setAttribute("width", "6");
+      accent.setAttribute("height", NODE_HEIGHT);
+      accent.setAttribute("rx", "3");
+      accent.setAttribute("fill", node.done ? "#22c55e" : (node.color || "#38bdf8"));
+      g.appendChild(accent);
+
+      let textStartX = 20;
+
+      if (node.done !== undefined) {
+        textStartX = 42;
+        const cbGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        cbGroup.setAttribute("class", "node-checkbox");
+        cbGroup.onclick = (e) => {
+          e.stopPropagation();
+          node.done = !node.done;
+          render();
+        };
+
+        const cbRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        cbRect.setAttribute("x", "16");
+        cbRect.setAttribute("y", "24");
+        cbRect.setAttribute("width", "18");
+        cbRect.setAttribute("height", "18");
+        cbRect.setAttribute("rx", "5");
+        cbRect.setAttribute("fill", node.done ? "#22c55e" : "#0f172a");
+        cbRect.setAttribute("stroke", node.done ? "#22c55e" : "#64748b");
+        cbRect.setAttribute("stroke-width", "2");
+        cbGroup.appendChild(cbRect);
+
+        if (node.done) {
+          const checkmark = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          checkmark.setAttribute("d", "M 20 33 L 24 37 L 30 28");
+          checkmark.setAttribute("stroke", "#ffffff");
+          checkmark.setAttribute("stroke-width", "2.5");
+          checkmark.setAttribute("stroke-linecap", "round");
+          checkmark.setAttribute("stroke-linejoin", "round");
+          checkmark.setAttribute("fill", "none");
+          cbGroup.appendChild(checkmark);
+        }
+        g.appendChild(cbGroup);
+      }
+
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      title.setAttribute("x", textStartX);
+      title.setAttribute("y", "28");
+      title.setAttribute("class", "node-title");
+      if (node.done) {
+        title.style.textDecoration = "line-through";
+        title.style.fill = "#94a3b8";
+      }
+      title.textContent = node.title;
+      g.appendChild(title);
+
+      const subtitle = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      subtitle.setAttribute("x", textStartX);
+      subtitle.setAttribute("y", "48");
+      subtitle.setAttribute("class", "node-subtitle");
+      subtitle.textContent = node.subtitle || "";
+      g.appendChild(subtitle);
+
+      if (node.children && node.children.length > 0) {
+        const toggleGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        toggleGroup.setAttribute("transform", `translate(${NODE_WIDTH - 24}, ${NODE_HEIGHT / 2})`);
+        
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("r", "11");
+        circle.setAttribute("fill", node.color || "#38bdf8");
+        toggleGroup.appendChild(circle);
+
+        const icon = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        icon.setAttribute("text-anchor", "middle");
+        icon.setAttribute("dy", "4");
+        icon.setAttribute("font-size", "12");
+        icon.setAttribute("font-weight", "bold");
+        icon.setAttribute("fill", "#0f172a");
+        icon.textContent = node.expanded ? "−" : `+${node.children.length}`;
+        toggleGroup.appendChild(icon);
+
+        g.appendChild(toggleGroup);
+      }
+
+      g.onclick = () => {
+        if (node.children && node.children.length > 0) {
+          node.expanded = !node.expanded;
+          render();
+        }
+      };
+
+      nodesLayer.appendChild(g);
+    }
+
+    function updateStats() {
+      let total = 0;
+      let completed = 0;
+
+      function traverse(n) {
+        if (n.done !== undefined) {
+          total++;
+          if (n.done) completed++;
+        }
+        if (n.children) n.children.forEach(traverse);
+      }
+      traverse(treeData);
+
+      const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+      document.getElementById("progress-percent").innerText = `${completed} из ${total} задач выполнено (${percent}%)`;
+      document.getElementById("progress-fill").style.width = percent + "%";
+    }
+
+    const container = document.getElementById("canvas-container");
+    container.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX - translateX;
+      startY = e.clientY - translateY;
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      translateX = e.clientX - startX;
+      translateY = e.clientY - startY;
+      updateTransform();
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    // Mac Trackpad Gestures: 2-finger pan & pinch-to-zoom
+    container.addEventListener("wheel", (e) => {
+      e.preventDefault();
+
+      if (e.ctrlKey) {
+        const zoomIntensity = 0.015;
+        const zoomFactor = Math.exp(-e.deltaY * zoomIntensity);
+        const newScale = Math.min(Math.max(scale * zoomFactor, 0.3), 3.0);
+        
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        translateX = mouseX - (mouseX - translateX) * (newScale / scale);
+        translateY = mouseY - (mouseY - translateY) * (newScale / scale);
+        scale = newScale;
+        updateTransform();
+      } else {
+        translateX -= e.deltaX;
+        translateY -= e.deltaY;
+        updateTransform();
+      }
+    }, { passive: false });
+
+    // Safari Native Gesture Support
+    let gestureStartScale = 1;
+    container.addEventListener("gesturestart", (e) => {
+      e.preventDefault();
+      gestureStartScale = scale;
+    });
+
+    container.addEventListener("gesturechange", (e) => {
+      e.preventDefault();
+      const newScale = Math.min(Math.max(gestureStartScale * e.scale, 0.3), 3.0);
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      translateX = mouseX - (mouseX - translateX) * (newScale / scale);
+      translateY = mouseY - (mouseY - translateY) * (newScale / scale);
+      scale = newScale;
+      updateTransform();
+    });
+
+    container.addEventListener("gestureend", (e) => {
+      e.preventDefault();
+    });
+
+    function zoomIn() {
+      scale = Math.min(scale * 1.2, 2.2);
+      updateTransform();
+    }
+    function zoomOut() {
+      scale = Math.max(scale * 0.8, 0.4);
+      updateTransform();
+    }
+    function resetZoom() {
+      scale = 0.95;
+      translateX = 70;
+      translateY = window.innerHeight / 2 - 120;
+      updateTransform();
+    }
+    function expandAll() {
+      function setExp(n) {
+        n.expanded = true;
+        if (n.children) n.children.forEach(setExp);
+      }
+      setExp(treeData);
+      render();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      render();
+    });
+  </script>
+</body>
+</html>
