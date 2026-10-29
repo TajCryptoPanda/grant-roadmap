@@ -400,7 +400,7 @@
         {
           id: "sprint_training",
           title: "🎓 Спринт 1: Тренинг Capacity Building (ОО «RCVC»)",
-          subtitle: "Срок: после 6 нояб | 1.5 дня, ~16 чел., за городом",
+          subtitle: "Срок: после 6 нояб | 1.5 дня, ~16 чел., гонорар $1.5k–$2.5k",
           status: "urgent",
           statusText: "ПОДГОТОВКА",
           color: "#f43f5e",
@@ -416,32 +416,89 @@
           ]
         },
         {
-          id: "sprint2",
-          title: "🍁 Спринт 2: Канадский фонд местных инициатив (CFLI)",
-          subtitle: "Срок: 2-3 нед | Бюджет: CAD 30,000 - 60,000",
+          id: "sprint_ned",
+          title: "🦅 Спринт 2: National Endowment for Democracy (NED)",
+          subtitle: "Дедлайн: 27 янв 2027 | Бюджет: $35,000 - $60,000",
+          status: "active",
+          statusText: "ФЛАГМАН",
+          color: "#6366f1",
+          expanded: true,
+          children: [
+            { id: "ned_1", title: "Шаг 2.1: Концепт Civic & Economic Resilience", subtitle: "Правовая и экономическая защита женщин/молодежи", done: false },
+            { id: "ned_2", title: "Шаг 2.2: Вшитые экспертные ставки P&B", subtitle: "MEL Expert + Lead Trainer ($7,000 – $10,000)", done: false },
+            { id: "ned_3", title: "Шаг 2.3: Заполнение формы на портале ned.org", subtitle: "Формирование проектного досье и логической рамки", done: false },
+            { id: "ned_4", title: "Шаг 2.4: Финальная подача к дедлайну 27.01.2027", subtitle: "Рассмотрение Советом директоров в мае 2027", done: false }
+          ]
+        },
+        {
+          id: "sprint_cfli",
+          title: "🍁 Спринт 3: Канадский фонд местных инициатив (CFLI)",
+          subtitle: "Срок: янв-февр 2027 | Бюджет: CAD 30,000 - 60,000",
           status: "prep",
           statusText: "КОНЦЕПТ",
           color: "#06b6d4",
           expanded: false,
           children: [
-            { id: "s2_1", title: "Шаг 2.1: Аналитический отчет по политике Канады FIAP", subtitle: "Завершен и сохранен в папке Канады", done: true },
-            { id: "s2_2", title: "Шаг 2.2: Адаптация концепта хаба под FIAP", subtitle: "Action Area 1 & 3: расширение прав женщин + GBV", done: false },
-            { id: "s2_3", title: "Шаг 2.3: Контакт с координатором CFLI в Астане", subtitle: "Предварительный питчинг проекта", done: false },
-            { id: "s2_4", title: "Шаг 2.4: Полный пакет к открытию окна", subtitle: "Готовность к старту приема заявок в январе", done: false }
+            { id: "s2_1", title: "Шаг 3.1: Аналитический отчет по политике Канады FIAP", subtitle: "Завершен и сохранен в базе практик", done: true },
+            { id: "s2_2", title: "Шаг 3.2: Адаптация концепта под Action Area 1 & 3", subtitle: "Экономические права женщин + защита от GBV", done: false },
+            { id: "s2_3", title: "Шаг 3.3: Предварительный питчинг в Посольстве Канады", subtitle: "Контакт с координатором CFLI (Астана)", done: false },
+            { id: "s2_4", title: "Шаг 3.4: Полный пакет заявки к открытию окна", subtitle: "Готовность к старту приема заявок", done: false }
           ]
         },
         {
-          id: "sprint3",
-          title: "🇪🇺 Спринт 3: European Endowment for Democracy (EED)",
-          subtitle: "Срок: 3-4 нед | Бюджет: €30,000 - €50,000",
-          status: "waiting",
-          statusText: "ОЖИДАНИЕ",
+          id: "sprint_usemb",
+          title: "🇺🇸 Спринт 4: Посольство США (PDS / Democracy Commission)",
+          subtitle: "Срок: зима 2026/27 | Бюджет: $25,000 - $50,000",
+          status: "prep",
+          statusText: "КОНЦЕПТ",
           color: "#3b82f6",
           expanded: false,
           children: [
-            { id: "s3_1", title: "Шаг 3.1: Logframe & Theory of Change", subtitle: "Устойчивость женского ресурсного центра", done: false },
-            { id: "s3_2", title: "Шаг 3.2: Операционный бюджет", subtitle: "Зарплаты психологов, юристов, тренеров", done: false },
-            { id: "s3_3", title: "Шаг 3.3: Подача через apply.democracyendowment.eu", subtitle: "Круглогодичный прием заявок", done: false }
+            { id: "usemb_1", title: "Шаг 4.1: Подготовка Statement of Interest (SOI)", subtitle: "Women's Economic Empowerment & Skills", done: false },
+            { id: "usemb_2", title: "Шаг 4.2: Бюджетирование тренинговых сессий P&B", subtitle: "Senior Facilitator + Curriculum Design", done: false },
+            { id: "usemb_3", title: "Шаг 4.3: Подача через GrantProposalsDushanbe@state.gov", subtitle: "Двухэтапный отбор посольства", done: false }
+          ]
+        },
+        {
+          id: "sprint_germany",
+          title: "🇩🇪 Спринт 5: Посольство Германии (Kleinstprojekte 2027)",
+          subtitle: "Дедлайн: янв 2027 | Бюджет: до €25,000 (TJS)",
+          status: "prep",
+          statusText: "МИКРОГРАНТ",
+          color: "#f59e0b",
+          expanded: false,
+          children: [
+            { id: "ger_1", title: "Шаг 5.1: Проектная записка Income Generation", subtitle: "Быстрое улучшение благосостояния уязвимых групп", done: false },
+            { id: "ger_2", title: "Шаг 5.2: Составление финансового плана в сомони", subtitle: "Расчет операционных расходов и обучения", done: false },
+            { id: "ger_3", title: "Шаг 5.3: Подача заявки на ez-10@dusc.diplo.de", subtitle: "Локальный отбор в г. Душанбе", done: false }
+          ]
+        },
+        {
+          id: "sprint_eed",
+          title: "🇪🇺 Спринт 6: European Endowment for Democracy (EED)",
+          subtitle: "Срок: открытое окно | Бюджет: €30,000 - €50,000",
+          status: "waiting",
+          statusText: "ОЖИДАНИЕ",
+          color: "#8b5cf6",
+          expanded: false,
+          children: [
+            { id: "s3_1", title: "Шаг 6.1: Logframe & Theory of Change", subtitle: "Устойчивость женского ресурсного центра", done: false },
+            { id: "s3_2", title: "Шаг 6.2: Операционный бюджет", subtitle: "Зарплаты психологов, юристов, тренеров", done: false },
+            { id: "s3_3", title: "Шаг 6.3: Подача через apply.democracyendowment.eu", subtitle: "Круглогодичный прием заявок", done: false }
+          ]
+        },
+        {
+          id: "sprint_gfw",
+          title: "🌸 Спринт 7: Global Fund for Women (GFW Core Support)",
+          subtitle: "Срок: роллинг | Бюджет: $15,000 - $25,000 (Core Funding)",
+          status: "waiting",
+          statusText: "ИНСТИТУЦИОНАЛ",
+          color: "#ec4899",
+          expanded: false,
+          children: [
+            { id: "gfw_1", title: "Шаг 7.1: Профиль САФИ в портале GFW", subtitle: "Регистрация женской организации", done: false },
+            { id: "gfw_2", title: "Шаг 7.2: Заявка на General Operating Support", subtitle: "Институциональное укрепление и экспертное сопровождение", done: false },
+            { id: "gfw_3", title: "Шаг 7.3: Соглашение о технической поддержке P&B", subtitle: "Прямой консалтинговый контракт", done: false }
           ]
         },
         {
