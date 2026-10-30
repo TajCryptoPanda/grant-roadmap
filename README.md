@@ -1,78 +1,76 @@
-# 🎯 P&B Advisory Partners: Портфель проектов 2026
-> **Партнеры:** Парвиз Умаров & Ботур (Кодовое имя: «Пул & Биёр»)  
-> **Профиль практики:** Grant Engineering • Capacity Building • Project Lifecycle Management  
-> **Целевые НПО:** ОО «RCVC», ОО «САФИ», ОО «Рушди Диёр»  
-> **Защищенная онлайн-версия:** `https://tajcryptopanda.github.io/grant-roadmap/?key=pulbiyor` (PIN: `2026` или `pulbiyor`)
+# 🎯 P&B Advisory Partners: Portfolio Tracks 2026
+> **Partners:** Parviz Umarov & Botur (Practice Code: «P&B Advisory Partners»)  
+> **Practice Scope:** Grant Engineering • Capacity Building • Project Lifecycle Management  
+> **Partner CSOs:** PO «RCVC», PO «SAFI», PO «Rushdi Diyor»  
+> **Live Secure Portal:** `https://tajcryptopanda.github.io/grant-roadmap/?key=pulbiyor` (PIN: `2026` or `pulbiyor`)
 
 ---
 
-## 🎓 Спринт 1: Выездной тренинг Capacity Building для ОО «RCVC»
-### ⏱️ Срок: Сразу после 6 ноября | Формат: 1.5 дня, ~16 чел. (за городом) | Статус: 🔴 ПОДГОТОВКА С НУЛЯ
-- [ ] **Шаг 1.1:** Согласование ТЗ: получить от руководства RCVC финальную тему и профиль 16 участников
-- [ ] **Шаг 1.2:** Разработка поминутной программы тренинга на 1.5 дня (Agenda / тайминг)
-  - [ ] День 1 (полный день): Вводная часть, интерактивные блоки, групповая работа над кейсами
-  - [ ] День 2 (первая половина): Презентация наработок команд, план внедрения, сертификаты
-- [ ] **Шаг 1.3:** Подготовка учебных материалов P&B (презентация, кейсы, рабочие тетради/handouts)
-- [ ] **Шаг 1.4:** Разработка инструментов контроля качества (Pre-test и Post-test для донорской отчетности)
-- [ ] **Шаг 1.5:** Логистический чек-лист с RCVC (загородный зал, проектор, 2 флипчарта, проживание, кофе-брейки)
-- [ ] **Шаг 1.6:** Тандемный прогон сессий между Парвизом и Ботуром (разделение тем и ролей)
-- [ ] **Шаг 1.7:** Проведение тренинга + подготовка финального Training Report для RCVC
+## 🎓 Track 1 / Project 1: RCVC Capacity Building Training
+### ⏱️ Timeline: Post-Nov 6 | Format: 1.5 days, ~16 pax (off-site) | Status: 🔴 PREPARATION
+- [ ] **Step 1.1:** Finalize ToR & Participant Profiles: confirm exact topic and 16 participants from RCVC
+- [ ] **Step 1.2:** Minute-by-Minute 1.5-Day Agenda: Day 1 theory + 2 practices; Day 2 project pitch & certificates
+- [ ] **Step 1.3:** P&B Training Materials: slide deck, 3 breakout case studies, handouts
+- [ ] **Step 1.4:** Quality Assurance Tools: Pre-test and Post-test for donor reporting
+- [ ] **Step 1.5:** Logistics Checklist with RCVC: off-site hall, projector, 2 flipcharts, accommodation, coffee breaks
+- [ ] **Step 1.6:** Rehearsal Session: Parviz & Botur timing and role allocation
+- [ ] **Step 1.7:** Delivery & Final Training Report for RCVC management and donor
 
-## 🦅 Спринт 2: National Endowment for Democracy (NED)
-### ⏱️ Дедлайн: 27 января 2027 | Бюджет: $35,000 - $60,000 | Статус: 🟣 ФЛАГМАН
-- [ ] **Шаг 2.1:** Концепт Civic & Economic Resilience: правовая и экономическая защита женщин и молодежи
-- [ ] **Шаг 2.2:** Формирование бюджета с вшитыми экспертными ставками P&B ($7,000 – $10,000)
-- [ ] **Шаг 2.3:** Заполнение официальной заявки на портале ned.org
-- [ ] **Шаг 2.4:** Финальная подача к дедлайну 27.01.2027 (рассмотрение в мае 2027)
+## 🦅 Track 2 / Project 2: NED Civic & Economic Resilience
+### ⏱️ Deadline: January 27, 2027 | Budget: $35,000 - $60,000 | Status: 🟣 FLAGSHIP
+- [ ] **Step 2.1:** Concept: Civic & Rights Protection for vulnerable women and youth
+- [ ] **Step 2.2:** Budgeting Embedded P&B Expert Lines ($7,000 – $10,000)
+- [ ] **Step 2.3:** Official Online Application Dossier at ned.org
+- [ ] **Step 2.4:** Final Submission by Jan 27, 2027 (Board review in May 2027)
 
-## 🍁 Спринт 3: ОО «САФИ» + Canada CFLI (Полный цикл)
-### ⏱️ Дедлайн: январь 2027 | Бюджет: CAD 45,000 - 50,000 | Статус: 🟡 В РАБОТЕ (5 ЭТАПОВ)
-- **Этап 1: Фундамент и входные данные (30 окт – 08 ноя)**
-  - [ ] **Шаг 1.1:** Партнерское соглашение с САФИ (MoU): эксклюзивность + роли P&B (Дедлайн: 03.11.2026)
-  - [ ] **Шаг 1.2:** Базовый профиль и данные бенефициаров (статистика GBV, доходы Согда) (Дедлайн: 05.11.2026)
-  - [x] **Шаг 1.3:** Экспертный бриф FIAP (Action Area 1 & 3: WEE + преодоление насилия) (Дедлайн: 08.11.2026)
-- **Этап 2: Проектирование и логика (09 ноя – 22 ноя)**
-  - [ ] **Шаг 2.1:** Теория изменений (Theory of Change) & Problem Tree (Дедлайн: 12.11.2026)
-  - [ ] **Шаг 2.2:** Логико-структурная матрица по стандарту GAC (SMART KPIs, Outcomes, Outputs) (Дедлайн: 17.11.2026)
-  - [ ] **Шаг 2.3:** План мониторинга и оценки (MEL Plan): Baseline/Endline замеры доходов (Дедлайн: 22.11.2026)
-- **Этап 3: Бюджетирование и экспертный комплаенс (23 ноя – 05 дек)**
-  - [ ] **Шаг 3.1:** Детальная смета проекта CAD 48k с бухгалтером САФИ (CAD & TJS) (Дедлайн: 28.11.2026)
-  - [ ] **Шаг 3.2:** Фиксация контрактов P&B в смете (Gender Advisor $3.75k, MEL $2k, Trainers $1.8k) (Дедлайн: 01.12.2026)
-  - [ ] **Шаг 3.3:** Сбор 3 котировок на ткани/материалы + предварительный договор аренды класса (Дедлайн: 05.12.2026)
-- **Этап 4: Англоязычный драфтинг и аудит (06 дек – 20 дек)**
-  - [ ] **Шаг 4.1:** Написание официальной аппликационной формы CFLI на английском языке (Дедлайн: 12.12.2026)
-  - [ ] **Шаг 4.2:** Внутренний Red Team Review (стресс-тест по 5 законам оценки) (Дедлайн: 16.12.2026)
-  - [ ] **Шаг 4.3:** Формирование административного досье САФИ (Устав, финотчеты, CV) (Дедлайн: 20.12.2026)
-- **Этап 5: Готовность и подача (21 дек – январь 2027)**
-  - [ ] **Шаг 5.1:** Утверждение мастер-пакета руководством САФИ (Turnkey Ready) (Дедлайн: 25.12.2026)
-  - [ ] **Шаг 5.2:** Предварительный контакт и питчинг координатору CFLI в Астане (Дедлайн: 10.01.2027)
-  - [ ] **Шаг 5.3:** Финальная подача в первые 48 часов открытия официального окна (Дедлайн: январь 2027)
+## 🍁 Track 3 / Project 3: SAFI + Canada CFLI (Full Cycle)
+### ⏱️ Deadline: January 2027 | Budget: CAD 45,000 - 50,000 | Status: 🟡 IN PROGRESS (5 PHASES)
+- **Phase 1: Foundation & Baseline Data (Oct 30 – Nov 08)**
+  - [ ] **Step 1.1:** Partnership Agreement with SAFI (MoU): exclusivity & P&B expert roles (Deadline: 03.11.2026)
+  - [ ] **Step 1.2:** Baseline Beneficiary Profile & Sughd GBV data collection (Deadline: 05.11.2026)
+  - [x] **Step 1.3:** FIAP Alignment Brief (Action Area 1 & 3: WEE + GBV prevention) (Deadline: 08.11.2026)
+- **Phase 2: Project Architecture & Logic (Nov 09 – Nov 22)**
+  - [ ] **Step 2.1:** Theory of Change & Problem Tree (Deadline: 12.11.2026)
+  - [ ] **Step 2.2:** Logical Framework Matrix (GAC Standard: SMART KPIs, Outcomes, Outputs) (Deadline: 17.11.2026)
+  - [ ] **Step 2.3:** Monitoring & Evaluation Plan (MEL): Baseline/Endline tracking (Deadline: 22.11.2026)
+- **Phase 3: Budgeting & Compliance (Nov 23 – Dec 05)**
+  - [ ] **Step 3.1:** Detailed Budget Breakdown CAD 48k with SAFI accountant (CAD & TJS) (Deadline: 28.11.2026)
+  - [ ] **Step 3.2:** Embedded P&B Service Contracts in Budget (Gender Advisor, MEL, Trainers) (Deadline: 01.12.2026)
+  - [ ] **Step 3.3:** Sourcing 3 Cost Quotes for Materials + Class Lease Agreement (Deadline: 05.12.2026)
+- **Phase 4: English Drafting & Red Team Review (Dec 06 – Dec 20)**
+  - [ ] **Step 4.1:** English Proposal Drafting on official CFLI Application Template (Deadline: 12.12.2026)
+  - [ ] **Step 4.2:** Internal Red Team Review (5 Laws of Proposal Evaluation) (Deadline: 16.12.2026)
+  - [ ] **Step 4.3:** SAFI Due Diligence & Administrative Dossier Packaging (Deadline: 20.12.2026)
+- **Phase 5: Final Packaging & Submission (Dec 21 – Jan 2027)**
+  - [ ] **Step 5.1:** Master Package Sign-off by SAFI Leadership (Turnkey Ready) (Deadline: 25.12.2026)
+  - [ ] **Step 5.2:** Advance Pitch to CFLI Coordinator at Embassy of Canada (Astana) (Deadline: 10.01.2027)
+  - [ ] **Step 5.3:** Final Submission within first 48 hours of official window opening (Deadline: Jan 2027)
 
-## 🇺🇸 Спринт 4: Посольство США в РТ (Democracy Commission / PDS Small Grants)
-### ⏱️ Срок: зима 2026/27 | Бюджет: $25,000 - $50,000 | Статус: 🔵 КОНЦЕПТ
-- [ ] **Шаг 4.1:** Подготовка Statement of Interest (SOI) по женскому экономическому лидерству
-- [ ] **Шаг 4.2:** Бюджетирование тренинговых сессий P&B (Senior Facilitator + Curriculum Design)
-- [ ] **Шаг 4.3:** Подача пакета через GrantProposalsDushanbe@state.gov
+## 🇺🇸 Track 4 / Project 4: US Embassy PDS Small Grants
+### ⏱️ Timeline: Winter 2026/27 | Budget: $25,000 - $50,000 | Status: 🔵 CONCEPT
+- [ ] **Step 4.1:** Statement of Interest (SOI) on Women's Economic Empowerment & Digital Skills
+- [ ] **Step 4.2:** Budgeting P&B Training Sessions (Senior Facilitator + Curriculum Design)
+- [ ] **Step 4.3:** Submission via GrantProposalsDushanbe@state.gov
 
-## 🇩🇪 Спринт 5: Посольство Германии в Душанбе (Kleinstprojekte 2027)
-### ⏱️ Дедлайн: январь 2027 | Бюджет: до €25,000 (TJS) | Статус: 🟡 МИКРОГРАНТ
-- [ ] **Шаг 5.1:** Проектная записка Income Generation (создание источников дохода для уязвимых групп)
-- [ ] **Шаг 5.2:** Составление финансового плана в национальной валюте (сомони)
-- [ ] **Шаг 5.3:** Подача заявки на ez-10@dusc.diplo.de (локальное рассмотрение в Душанбе)
+## 🇩🇪 Track 5 / Project 5: German Embassy Micro-Projects 2027
+### ⏱️ Deadline: January 2027 | Budget: up to €25,000 (TJS) | Status: 🟡 MICRO-GRANT
+- [ ] **Step 5.1:** Project Note: Income Generation for vulnerable families
+- [ ] **Step 5.2:** Itemized Financial Plan in local currency (TJS)
+- [ ] **Step 5.3:** Submission to ez-10@dusc.diplo.de (Local Embassy Committee in Dushanbe)
 
-## 🇪🇺 Спринт 6: European Endowment for Democracy (EED)
-### ⏱️ Срок: открытое окно | Бюджет: €30,000 - €50,000 | Статус: ⚪ ОЖИДАЕТ СТАРТА
-- [ ] **Шаг 6.1:** Архитектура проекта устойчивости ресурсного центра для уязвимых женщин
-- [ ] **Шаг 6.2:** Проектирование операционного бюджета (зарплаты тренеров, психологов, юристов)
-- [ ] **Шаг 6.3:** Заполнение заявки на портале apply.democracyendowment.eu
+## 🇪🇺 Track 6 / Project 6: European Endowment for Democracy (EED)
+### ⏱️ Timeline: Rolling Window | Budget: €30,000 - €50,000 | Status: ⚪ STANDBY
+- [ ] **Step 6.1:** Architecture of Women Resource Center sustainability project
+- [ ] **Step 6.2:** Operational Budget (salaries for trainers, psychologists, lawyers)
+- [ ] **Step 6.3:** Submission via apply.democracyendowment.eu
 
-## 🌸 Спринт 7: Global Fund for Women (GFW Core Support)
-### ⏱️ Срок: роллинг | Бюджет: $15,000 - $25,000 (Core Funding) | Статус: ⚪ ИНСТИТУЦИОНАЛ
-- [ ] **Шаг 7.1:** Профиль ОО «САФИ» в партнерском портале Global Fund for Women
-- [ ] **Шаг 7.2:** Заявка на General Operating Support (институциональное укрепление)
-- [ ] **Шаг 7.3:** Соглашение о техническом и экспертном сопровождении практики P&B
+## 🌸 Track 7 / Project 7: Global Fund for Women (Core Support)
+### ⏱️ Timeline: Rolling | Budget: $15,000 - $25,000 (Core Funding) | Status: ⚪ CORE SUPPORT
+- [ ] **Step 7.1:** SAFI Organization Profile in GFW Partner Portal
+- [ ] **Step 7.2:** General Operating Support Application
+- [ ] **Step 7.3:** P&B External Advisory Service Contract
 
-## 🏛️ Институциональный трек и Консорциумы
+## 🏛️ Institutional Track: UN Portal & Consortia
 ### ⏱️ Постоянно | Статус: 🟢 АКТИВНО
 - [ ] **Шаг 8.1:** Верификация профилей ОО «САФИ» и ОО «RCVC» на UN Partner Portal (UNPP)
 - [ ] **Шаг 8.2:** Проработка совместной заявки консорциума «САФИ + RCVC» (производство + беженцы)
